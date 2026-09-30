@@ -194,7 +194,9 @@ A feature is not complete until:
 
 ## Current phase
 
-Phase 2 — Case Management. Case CRUD (create/retrieve/list/update/status)
-and the audit trail are implemented and tested. No document ingestion,
-extraction, triage, rules engine, or RAG functionality exists yet. See
-docs/ROADMAP.md (once created) for the full phase plan.
+Phase 3 — Document Ingestion. Case CRUD, the audit trail, and document
+upload (PDF/text/JSON, with content-type validation, size limits, magic-byte
+sniffing, hashing, and text extraction) are implemented and tested. No AI
+extraction of structured fields, completeness checks, triage, rules engine,
+or RAG functionality exists yet. See docs/ROADMAP.md (once created) for the
+full phase plan.

@@ -5,9 +5,24 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
 
 import app.models  # noqa: F401 — registers models on Base.metadata
+from app.core.config import get_settings
 from app.db.base import Base
 from app.db.session import get_db
 from app.main import app
+from app.storage import get_storage
+
+
+@pytest.fixture(autouse=True)
+def isolated_storage(tmp_path, monkeypatch):
+    """Point document storage at a per-test temp dir instead of the real
+    ./data/uploads, and reset the cached Settings/storage singletons so the
+    override actually takes effect."""
+    monkeypatch.setenv("STORAGE_DIR", str(tmp_path / "uploads"))
+    get_settings.cache_clear()
+    get_storage.cache_clear()
+    yield
+    get_settings.cache_clear()
+    get_storage.cache_clear()
 
 
 @pytest.fixture()

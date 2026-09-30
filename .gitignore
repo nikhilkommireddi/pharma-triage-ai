@@ -24,3 +24,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Local uploaded-document storage (app/storage/local.py)
+backend/data/

@@ -14,6 +14,9 @@ class Settings(BaseSettings):
 
     api_cors_origins: list[str] = ["http://localhost:5173"]
 
+    storage_dir: str = "./data/uploads"
+    max_upload_size_bytes: int = 10 * 1024 * 1024
+
 
 @lru_cache
 def get_settings() -> Settings:
