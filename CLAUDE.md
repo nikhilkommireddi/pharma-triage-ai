@@ -194,6 +194,7 @@ A feature is not complete until:
 
 ## Current phase
 
-Phase 1 — Foundation only. No AI, extraction, triage, or rules-engine
-functionality has been implemented yet. See docs/ROADMAP.md (once created)
-for the full phase plan.
+Phase 2 — Case Management. Case CRUD (create/retrieve/list/update/status)
+and the audit trail are implemented and tested. No document ingestion,
+extraction, triage, rules engine, or RAG functionality exists yet. See
+docs/ROADMAP.md (once created) for the full phase plan.

@@ -5,8 +5,19 @@ AI-assisted case triage and routing platform for pharmaceutical operations
 
 See [CLAUDE.md](./CLAUDE.md) for product principles and engineering rules.
 
-**Status: Phase 1 (foundation) only.** No extraction, triage, rules-engine,
-or RAG functionality exists yet.
+**Status: Phase 2 (case management).** Case CRUD and the audit trail exist.
+No document ingestion, extraction, triage, rules-engine, or RAG
+functionality exists yet.
+
+## API (current)
+
+- `POST /cases` — create a case (source/product/patient/event/reporter info)
+- `GET /cases` — list cases (`limit`, `offset`)
+- `GET /cases/{id}` — retrieve a case
+- `PATCH /cases/{id}` — update structured fields and/or status; every
+  changed field produces a separate audit event, and `status` changes
+  require/record a `reason`
+- `GET /cases/{id}/audit` — full audit trail for a case
 
 ## Running locally
 
