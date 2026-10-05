@@ -27,3 +27,6 @@ Thumbs.db
 
 # Local uploaded-document storage (app/storage/local.py)
 backend/data/
+
+# Evaluation run output (evaluation/run_extraction_eval.py)
+evaluation/reports/*.json

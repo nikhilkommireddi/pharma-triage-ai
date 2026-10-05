@@ -17,6 +17,9 @@ class Settings(BaseSettings):
     storage_dir: str = "./data/uploads"
     max_upload_size_bytes: int = 10 * 1024 * 1024
 
+    anthropic_api_key: str | None = None
+    extraction_model: str = "claude-sonnet-5"
+
 
 @lru_cache
 def get_settings() -> Settings:

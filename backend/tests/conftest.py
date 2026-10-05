@@ -5,11 +5,13 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
 
 import app.models  # noqa: F401 — registers models on Base.metadata
+from app.ai import get_llm_provider
 from app.core.config import get_settings
 from app.db.base import Base
 from app.db.session import get_db
 from app.main import app
 from app.storage import get_storage
+from tests.fakes import FakeLLMProvider
 
 
 @pytest.fixture(autouse=True)
@@ -53,3 +55,11 @@ def client(db_session):
     with TestClient(app) as test_client:
         yield test_client
     app.dependency_overrides.clear()
+
+
+@pytest.fixture()
+def fake_llm_provider():
+    provider = FakeLLMProvider()
+    app.dependency_overrides[get_llm_provider] = lambda: provider
+    yield provider
+    app.dependency_overrides.pop(get_llm_provider, None)

@@ -194,9 +194,10 @@ A feature is not complete until:
 
 ## Current phase
 
-Phase 3 — Document Ingestion. Case CRUD, the audit trail, and document
-upload (PDF/text/JSON, with content-type validation, size limits, magic-byte
-sniffing, hashing, and text extraction) are implemented and tested. No AI
-extraction of structured fields, completeness checks, triage, rules engine,
-or RAG functionality exists yet. See docs/ROADMAP.md (once created) for the
+Phase 4 — AI Extraction. Case CRUD, the audit trail, document ingestion,
+and AI-assisted structured-field extraction (behind an LLMProvider
+abstraction, Claude as the current implementation) are implemented and
+tested. Extraction results are versioned (model/prompt/timestamp) and never
+overwritten. No completeness checks, deterministic rules engine, triage,
+RAG, or human review exist yet. See docs/ROADMAP.md (once created) for the
 full phase plan.
